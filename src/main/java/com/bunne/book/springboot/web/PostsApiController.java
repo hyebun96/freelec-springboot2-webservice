@@ -7,8 +7,6 @@ import com.bunne.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
-
 @RequiredArgsConstructor
 @RestController
 public class PostsApiController {

@@ -25,28 +25,6 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void save_board_load() {
-        // given
-        String title = "테스트 게시글";
-        String content = "테스트 본문";
-
-        postsRepository.save(Posts.builder()
-                .title(title)
-                .content(content)
-                .author("hyebun96@naver.com")
-                .build());
-
-        // when
-        List<Posts> postsList = postsRepository.findAll();
-
-        //then
-        Posts posts = postsList.get(0);
-        assertThat(posts.getTitle()).isEqualTo(title);
-        assertThat(posts.getContent()).isEqualTo(content);
-
-    }
-
-    @Test
     public void BaseTimeEntity_save() {
         // given
         LocalDateTime now = LocalDateTime.of(2023,4,28,0,0,0);
@@ -66,6 +44,28 @@ public class PostsRepositoryTest {
 
         assertThat(posts.getCreatedDate()).isAfter(now);
         assertThat(posts.getModifiedDate()).isAfter(now);
+
+    }
+
+    @Test
+    public void save_board_load() {
+        // given
+        String title = "테스트 게시글";
+        String content = "테스트 본문";
+
+        postsRepository.save(Posts.builder()
+                .title(title)
+                .content(content)
+                .author("hyebun96@naver.com")
+                .build());
+
+        // when
+        List<Posts> postsList = postsRepository.findAll();
+
+        //then
+        Posts posts = postsList.get(0);
+        assertThat(posts.getTitle()).isEqualTo(title);
+        assertThat(posts.getContent()).isEqualTo(content);
 
     }
 
